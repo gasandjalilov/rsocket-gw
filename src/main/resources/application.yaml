@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: rsocketgw
+  cloud:
+    gateway:
+      rsocket:
+        service-name: ${spring.application.name}
+      routes:
+        - id: "mobile be"
+          uri: http://127.0.0.1:8070
+          predicates:
+            - Path=/mb/**
